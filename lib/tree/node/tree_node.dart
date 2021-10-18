@@ -69,7 +69,7 @@ class NodeData {
   NodeData() : children = [];
   List<NodeData> children;
   bool isSelected = false;
-
+  bool indeterminedSelected=false;
   /// Index in all nodes
   int index = -1;
 
