@@ -171,11 +171,23 @@ class TreeViewController extends ChangeNotifier {
     notifyListeners();
   }
   int checkAllChildrenSelected(dynamic item) {
-    if (item == null) {
-      return data!.length;
+    int selectedCounter=0;
+    int childrenCounter=0;
+
+    for (NodeData child in item.children) {
+      childrenCounter++;
+      if(child.isSelected){
+        selectedCounter++;
+      }
     }
-    NodeData nodeData = item;
-    return nodeData.children.length;
+
+    if(selectedCounter==0){
+      return 3;
+    }else if(selectedCounter==childrenCounter){
+      return 1;
+    }else{
+      return 2;
+    }
   }
   int itemChildrenLength(dynamic item) {
     if (item == null) {
